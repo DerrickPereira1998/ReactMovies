@@ -1,9 +1,13 @@
+.background{
+    background-color: black;
+}
+
 .formulario-container {
     display: flex;
+    gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 80px 50px;
-
+    margin: 0 50px;
 }
 .formulario-container .formulario {
     background: #F7F7F7;

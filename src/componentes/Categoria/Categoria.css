@@ -1,10 +1,11 @@
-.time {
+.categoria {
+    background: white;
     text-align: center;
     padding: 32px;
     position: relative;
 }
 
-.time h3 {
+.categoria h3 {
     font-family: 'Prata';
     font-size: 32px;
     border-bottom: 4px solid;
@@ -12,7 +13,7 @@
     padding-bottom: 8px;
 }
 
-.time .colaboradores {
+.categoria .colaboradores {
     display: flex;
     justify-content: space-around;
     margin-top: 32px;

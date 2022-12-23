@@ -1,3 +1,5 @@
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
+import { SiReact } from 'react-icons/si';
 import './Rodape.css'
 
 const Rodape = () => {
@@ -6,21 +8,27 @@ const Rodape = () => {
             <section>
                 <ul>
                     <li>
-                    <img src="/imagens/fb.png" alt="facebook"/>
+                        <a href='https://linkedin.com/in/derrick-andre-pereira-73931a174' target='_blank'>
+                            <AiFillLinkedin color='black' size={40}/>
+                        </a>
                     </li>
                     <li>
-                    <img src="/imagens/tw.png" alt="Twitter"/>
-                    </li>
-                    <li>
-                    <img src="/imagens/ig.png" alt="Instagram"/>
+                        <a href='https://github.com/DerrickPereira1998' target='_blank'>
+                            <AiFillGithub color='black' size={40}/>
+                        </a>
                     </li>
                 </ul>
             </section>
-            <section>
-                <img src="/imagens/logo.png" alt="logo"/>
+            <section>    
+                <div>
+                    <SiReact color='black' size={32}/>
+                </div> 
+                <div>
+                    <p>ReactMovies</p>
+                </div>
             </section>
             <section>
-                <p>Desenvolvido por Alura</p>
+                <p>Desenvolvido por Derrick Pereira</p>
             </section>
         </footer>
     )

@@ -1,19 +1,48 @@
 /* src/componentes/Rodape/index.js */
 
 .footer {
-    background: #6278F7;
-    color: #FFF;
-    padding: 80px;
+    background: #77bad4;
+    color: #000;
+    padding: 0 0 10px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.footer section:last-child {
+    margin-right: 32px;
+}
+
+@import url('https:fonts.googleapis.com/css?family=Montserrat:500');
+
 .footer ul li {
     display: inline-block;
-    margin-right: 32px;
+    margin-right: 10px;
+}
+
+.footer ul li a{
+    background-color: #77bad4;
 }
 
 .footer ul li:last-child {
     margin-right: 0;
+}
+
+.footer ul li:last-child {
+    margin-right: 0;
+}
+
+.footer div{
+    display: inline-block;
+    margin-right: 5px;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    align-items: center;
+}
+
+.footer div p {
+    margin: 0 0; 
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
 }

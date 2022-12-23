@@ -1,13 +1,14 @@
+import './App.css';
 import { useState } from 'react';
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Rodape from './componentes/Rodape';
-import Time from './componentes/Time';
+import Categoria from './componentes/Categoria';
+import Navbar from './componentes/Navbar';
 import { v4 as uuidv4 } from 'uuid'
-
 function App() {
 
-  const [times,setTimes] = useState([
+  const [categorias,setCategorias] = useState([
     {
       id: uuidv4(),
       nome: 'Programação',
@@ -51,8 +52,9 @@ function App() {
       nome: 'Derrick',
       cargo: 'Desenvolvedor',
       imagem:'https://github.com/DerrickPereira1998.png',
-      time: times[0].nome,
-      favorito: false
+      categoria: categorias[0].nome,
+      favorito: false,
+      classificacao: false
     }
   ])
 
@@ -60,17 +62,17 @@ function App() {
     setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id ))
   }
 
-  function mudarCorDoTime(cor, id) {
-    setTimes(times.map(time => {
-      if(time.id === id){
-        time.cor = cor
+  function mudarCorDaCategoria(cor, id) {
+    setCategorias(categorias.map(categoria => {
+      if(categoria.id === id){
+        categoria.cor = cor
       }
-        return time //Sempre retorne algo se nao quizer pegar erro de array undefined
+        return categoria //Sempre retorne algo se nao quizer pegar erro de array undefined
     }))
   }
 
-  function cadastrarTime(novoTime){
-    setTimes([...times, {...novoTime, id: uuidv4()} ])//Os tres pontinhos pegam o array completo, o novo item entao é somado ao array
+  function cadastrarCategoria(novaCategoria){
+    setCategorias([...categorias, {...novaCategoria, id: uuidv4()} ])//Os tres pontinhos pegam o array completo, o novo item entao é somado ao array
   }
 
   function resolverFavorito(id){
@@ -82,22 +84,33 @@ function App() {
     }))
   }
 
+  function classificarColaborador(id){
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id == id){
+        colaborador.classificacao = !colaborador.classificacao
+      }
+      return colaborador
+    }))
+  }
+
   return (
     <div className="App">
-      <Banner />
+      <Navbar/>
+      <Banner/>
       <Formulario 
-        cadastrarTime={cadastrarTime}
-        times={times.map(time => time.nome)} 
+        cadastrarCategoria={cadastrarCategoria}
+        categorias={categorias.map(categoria => categoria.nome)} 
         aoCadastrar={colaborador => setColaboradores([...colaboradores, colaborador])}/>
 
-      {times.map((time,indice) => <Time 
-        mudarCor = {mudarCorDoTime}
+      {categorias.map((categoria,indice) => <Categoria 
+        mudarCor = {mudarCorDaCategoria}
         key={indice} 
-        time={time} 
+        categoria={categoria} 
         colaboradores={colaboradores.filter
-          (colaborador => colaborador.time === time.nome)}
+          (colaborador => colaborador.categoria === categoria.nome)}
         aoDeletar={deletarColaborador}
         aoFavoritar={resolverFavorito}
+        aoClassificar={classificarColaborador}
       />)}
       <Rodape/>
     </div>
