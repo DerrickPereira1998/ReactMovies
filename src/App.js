@@ -46,7 +46,7 @@ function App() {
     }
   ])
 
-  const [colaboradores, setColaboradores] = useState([
+  const [filmes, setFilmes] = useState([
     {
       id: uuidv4(),
       nome: 'Derrick',
@@ -58,8 +58,8 @@ function App() {
     }
   ])
 
-  function deletarColaborador(id) {
-    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id ))
+  function deletarFilme(id) {
+    setFilmes(filmes.filter(filme => filme.id !== id ))
   }
 
   function mudarCorDaCategoria(cor, id) {
@@ -76,20 +76,20 @@ function App() {
   }
 
   function resolverFavorito(id){
-    setColaboradores(colaboradores.map(colaborador => {
-      if(colaborador.id === id){
-        colaborador.favorito = !colaborador.favorito 
+    setFilmes(filmes.map(filme => {
+      if(filme.id === id){
+        filme.favorito = !filme.favorito 
       }
-      return colaborador
+      return filme
     }))
   }
 
-  function classificarColaborador(id){
-    setColaboradores(colaboradores.map(colaborador => {
-      if(colaborador.id == id){
-        colaborador.classificacao = !colaborador.classificacao
+  function classificarFilme(id){
+    setFilmes(filmes.map(filme => {
+      if(filme.id == id){
+        filme.classificacao = !filme.classificacao
       }
-      return colaborador
+      return filme
     }))
   }
 
@@ -100,17 +100,17 @@ function App() {
       <Formulario 
         cadastrarCategoria={cadastrarCategoria}
         categorias={categorias.map(categoria => categoria.nome)} 
-        aoCadastrar={colaborador => setColaboradores([...colaboradores, colaborador])}/>
+        aoCadastrar={filme => setFilmes([...filmes, filme])}/>
 
       {categorias.map((categoria,indice) => <Categoria 
         mudarCor = {mudarCorDaCategoria}
         key={indice} 
         categoria={categoria} 
-        colaboradores={colaboradores.filter
-          (colaborador => colaborador.categoria === categoria.nome)}
-        aoDeletar={deletarColaborador}
+        filmes={filmes.filter
+          (filme => filme.categoria === categoria.nome)}
+        aoDeletar={deletarFilme}
         aoFavoritar={resolverFavorito}
-        aoClassificar={classificarColaborador}
+        aoClassificar={classificarFilme}
       />)}
       <Rodape/>
     </div>

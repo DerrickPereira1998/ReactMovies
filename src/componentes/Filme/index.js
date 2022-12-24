@@ -1,5 +1,5 @@
 import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart, AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import './Colaborador.css'
+import './Filme.css'
 
 const Colaborador = ({id, nome, imagem, cargo, corDeFundo, aoDeletar, favorito, aoFavoritar, classificacao, aoClassificar}) => {
     function favoritar(){

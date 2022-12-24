@@ -5,10 +5,10 @@ import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 import { v4 as uuidv4 } from 'uuid'
 
-const Formulario = ({cadastrarTime , aoCadastrar, categorias}) => {
+const Formulario = ({cadastrarCategoria , aoCadastrar, categorias}) => {
 
     const [nome, setNome] = useState('')
-    const [cargo, setCargo] = useState('')
+    const [anoDeLancamento, setAnoDeLancamento] = useState('')
     const [imagem, setImagem] = useState('')
     const [categoria, setCategoria] = useState('')
 
@@ -20,12 +20,12 @@ const Formulario = ({cadastrarTime , aoCadastrar, categorias}) => {
         aoCadastrar({
             id: uuidv4(),
             nome,
-            cargo,
+            anoDeLancamento,
             imagem,
             categoria
         })
         setNome('')
-        setCargo('')
+        setAnoDeLancamento('')
         setImagem('')
         setCategoria('')
     }
@@ -34,24 +34,24 @@ const Formulario = ({cadastrarTime , aoCadastrar, categorias}) => {
         <div className='background'>
             <section className="formulario-container">
                 <form className='formulario' onSubmit={aoSalvar}>
-                    <h2>Preencha os dados para criar o card do colaborador</h2>
+                    <h2>Preencha os dados para criar o card do filme</h2>
                     <Campo 
                         obrigatorio={true}
                         label="Nome"
-                        placeholder="Digite seu nome" 
+                        placeholder="Digite o nome do filme" 
                         valor={nome}
                         aoAlterado={valor => setNome(valor)}
                     />
                     <Campo
                         obrigatorio={true}
-                        label="Cargo"
-                        placeholder="Digite seu cargo" 
-                        valor={cargo}
-                        aoAlterado={valor => setCargo(valor)}
+                        label="Ano de lançamento"
+                        placeholder="Digite o ano de lançamento do filme" 
+                        valor={anoDeLancamento}
+                        aoAlterado={valor => setAnoDeLancamento(valor)}
                     />
                     <Campo
                         label="Imagem"
-                        placeholder="Digite o endereço da imagem" 
+                        placeholder="Digite o endereço da imagem do filme" 
                         valor={imagem}
                         aoAlterado={valor => setImagem(valor)}
                     />
@@ -68,7 +68,7 @@ const Formulario = ({cadastrarTime , aoCadastrar, categorias}) => {
                 </form>
                 <form className='formulario' onSubmit={(evento) => {
                     evento.preventDefault()
-                    cadastrarTime({nome: nomeCategoria, cor: corCategoria})
+                    cadastrarCategoria({nome: nomeCategoria, cor: corCategoria})
                 }}>
                     <h2>Preencha os dados para criar uma nova categoria</h2>
                     <Campo 

@@ -1,28 +1,28 @@
 import hexToRgba from 'hex-to-rgba'
-import Colaborador from '../Colaborador'
+import Colaborador from '../Filme'
 import './Categoria.css'
 
-const Categoria = ({categoria, colaboradores, aoDeletar, aoFavoritar, mudarCor, aoClassificar}) => {
+const Categoria = ({categoria, filmes, aoDeletar, aoFavoritar, mudarCor, aoClassificar}) => {
     const css = { backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: hexToRgba(categoria.cor, '0.5') }
 
     return (
-        (colaboradores.length > 0) ? <section className='categoria' style={css}>
+        (filmes.length > 0) ? <section className='categoria' style={css}>
             <input onChange={evento => mudarCor(evento.target.value, categoria.id)} value={categoria.cor} type='color' className='input-cor'/>
             <h3 style={{ borderColor: categoria.cor }}>{categoria.nome}</h3>
-            <div className='colaboradores'>
-                {colaboradores.map( colaborador => {
+            <div className='filmes'>
+                {filmes.map( filme => {
                     return(
                         <Colaborador 
                             corDeFundo={categoria.cor} 
-                            key={colaborador.nome} 
-                            nome={colaborador.nome} 
-                            cargo={colaborador.cargo} 
-                            imagem={colaborador.imagem} 
-                            id={colaborador.id}
+                            key={filme.nome} 
+                            nome={filme.nome} 
+                            cargo={filme.cargo} 
+                            imagem={filme.imagem} 
+                            id={filme.id}
                             aoDeletar={aoDeletar} 
-                            favorito={colaborador.favorito} 
+                            favorito={filme.favorito} 
                             aoFavoritar={aoFavoritar}
-                            classificacao={colaborador.classificacao}                            
+                            classificacao={filme.classificacao}                            
                             aoClassificar={aoClassificar}
                         />)
                 } )}
