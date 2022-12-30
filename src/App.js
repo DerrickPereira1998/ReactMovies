@@ -54,7 +54,7 @@ function App() {
       imagem:'https://github.com/DerrickPereira1998.png',
       categoria: categorias[0].nome,
       favorito: false,
-      classificacao: false
+      classificacao: 0
     }
   ])
 
@@ -84,10 +84,10 @@ function App() {
     }))
   }
 
-  function classificarFilme(id){
+  function classificarFilme(id,numero){
     setFilmes(filmes.map(filme => {
-      if(filme.id == id){
-        filme.classificacao = !filme.classificacao
+      if(filme.id === id){
+        filme.classificacao = numero
       }
       return filme
     }))
