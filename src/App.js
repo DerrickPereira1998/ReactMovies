@@ -84,15 +84,6 @@ function App() {
     }))
   }
 
-  function classificarFilme(id,numero){
-    setFilmes(filmes.map(filme => {
-      if(filme.id === id){
-        filme.classificacao = numero
-      }
-      return filme
-    }))
-  }
-
   return (
     <div className="App">
       <Navbar/>
@@ -110,7 +101,6 @@ function App() {
           (filme => filme.categoria === categoria.nome)}
         aoDeletar={deletarFilme}
         aoFavoritar={resolverFavorito}
-        aoClassificar={classificarFilme}
       />)}
       <Rodape/>
     </div>

@@ -1,4 +1,4 @@
-/* src/componentes/Rodape/index.js */
+@import url('https:fonts.googleapis.com/css?family=Montserrat:500');
 
 .footer {
     background: #77bad4;
@@ -12,8 +12,6 @@
 .footer section:last-child {
     margin-right: 32px;
 }
-
-@import url('https:fonts.googleapis.com/css?family=Montserrat:500');
 
 .footer ul li {
     display: inline-block;

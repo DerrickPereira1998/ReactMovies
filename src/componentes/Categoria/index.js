@@ -22,8 +22,6 @@ const Categoria = ({categoria, filmes, aoDeletar, aoFavoritar, mudarCor, aoClass
                             aoDeletar={aoDeletar} 
                             favorito={filme.favorito} 
                             aoFavoritar={aoFavoritar}
-                            classificacao={filme.classificacao}                            
-                            aoClassificar={aoClassificar}
                         />)
                 } )}
             </div>

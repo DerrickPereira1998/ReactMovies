@@ -1,3 +1,5 @@
+@import url('https:fonts.googleapis.com/css?family=Montserrat:500');
+
 .banner {
     background-color: #77bad4;
     text-align: center;
@@ -5,4 +7,22 @@
 
 .banner img {
     max-width: 100%;
+}
+
+.banner div {
+    position: absolute;
+    color: white;
+    font-size: 55px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px 27%;
+}
+
+.banner div p {
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+    margin-right: auto;
+    margin-left: 2px;
 }
